@@ -5,10 +5,8 @@
 async function start() {
     try {
         await connection.start();
-        alert("SignalR Connected.");
         try {
             connection.invoke("JoinGroup", "teams");
-            alert("Success join");
         }
         catch(err) {
             alert(err);

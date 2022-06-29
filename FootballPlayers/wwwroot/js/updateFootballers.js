@@ -8,7 +8,6 @@ async function start() {
         alert("SignalR Connected.");
         try {
             connection.invoke("JoinGroup", "footballers");
-            alert("Success join");
         }
         catch (err) {
             alert(err);
