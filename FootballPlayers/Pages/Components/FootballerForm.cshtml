@@ -1,0 +1,78 @@
+﻿@using Models
+@model Models.Transfers.CreateFootballerDto
+
+<head>
+    <script src="~/jquery/dist/jquery.min.js"></script>
+    <script src="~/signalr/dist/browser/signalr.min.js"></script>
+    <script type="text/javascript"  src="~/js/updateTeams.js"></script>
+    <script src="~/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js"></script>
+</head>
+
+@using (Html.BeginForm(ViewBag.MethodName as string, ViewBag.ControllerName as string, new {playerId = Model is null ? Guid.Empty:(Guid) ViewBag.ModelId }, FormMethod.Post,true, new { @id = "footballerForm" }))
+{
+    <fieldset>
+        <div class="formProp">
+            <div>
+                Имя:
+            </div>
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+
+        <div class="formProp">
+            <div>
+                Фамилия:
+            </div>
+            @Html.EditorFor(model => model.Surname)
+            @Html.ValidationMessageFor(model => model.Surname)
+        </div>
+
+        <div class="formProp">
+             <div>
+                Пол:
+            </div>
+             @Html.DropDownListFor(model => model.Sex, Html.GetEnumSelectList(typeof(Sex)), Model is null ? String.Empty : Model.Sex.ToString())
+             @Html.ValidationMessageFor(model => model.Sex)
+        </div>
+        
+        <div class="formProp">
+            <div>
+                Дата рождения:
+            </div>
+            @Html.EditorFor(model => model.BirthDate, Model is null ? String.Empty : Model.BirthDate.ToString("yyyy/MM/dd"))
+            @Html.ValidationMessageFor(m => m.BirthDate, "", new { @class = "text-danger" })
+        </div>
+        <div class="formProp">
+            
+            <div>
+                <div>
+                    Название команды:
+                </div>
+                @{
+                    var dafaultTeam = String.Empty;
+                    var teams = ViewBag.Teams as SelectList;
+                    if (Model != null)
+                    {
+                        var listValue = teams.Where(x => x.Value.Equals(Model.TeamId.ToString())).FirstOrDefault();
+                        dafaultTeam = listValue is null? String.Empty :listValue.Text;
+                    }
+                }
+                @Html.DropDownListFor(model => model.TeamId, teams, dafaultTeam, new{@id="teamList"})
+                @Html.ValidationMessageFor(model => model.TeamId)
+            </div>
+            <div>
+                <input type="button" class="button" id="genreAddLink" onclick="ShowWindow()" value="Добавить новую команду"/>
+            </div>
+        </div>
+        
+        <div class="formProp">
+            <div>
+                Страна:
+            </div>
+            @Html.DropDownListFor(model => model.Country, Html.GetEnumSelectList(typeof(Country)), Model is null ? String.Empty : Model.Country.ToString())
+            @Html.ValidationMessageFor(model => model.Country)
+        </div>
+        
+    </fieldset>
+}

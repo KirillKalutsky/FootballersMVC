@@ -1,0 +1,72 @@
+﻿@using Models
+@model Models.Footballer
+
+<head>
+    <script src="~/signalr/dist/browser/signalr.min.js"></script>
+    <script type="text/javascript"  src="~/js/updateFootballers.js"></script>
+</head>
+
+<h1>Таблица футболистов</h1>
+
+<div id="footballersTable">
+    <table>
+        <thead>
+            <tr>
+                <td>
+                    Имя
+                </td>
+                <td>
+                    Фамилия
+                </td>
+                <td>
+                    Пол
+                </td>
+                <td>
+                    Дата рождения
+                </td>
+                 <td>
+                    Название команды
+                </td>
+                 <td>
+                    Страна
+                </td>
+                <td></td>
+            </tr>
+        </thead>
+        <tbody id="tableBody">
+            @foreach (var item in ViewBag.Footballers as IEnumerable<Footballer>)
+            {
+                var linkPath = $"/Page/Edit/{item.Id}";
+                <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Surname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sex)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BirthDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Team.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Country)
+                </td>
+                <td>
+                    <a href="@linkPath">Edit</a>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<div id="pageSwitch">
+      @Html.ActionLink("1","GetFirstPageView","Page")
+</div>
+
+

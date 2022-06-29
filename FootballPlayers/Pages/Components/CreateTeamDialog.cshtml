@@ -1,0 +1,25 @@
+﻿@model Models.Transfers.CreateTeamDto
+
+<head>
+    <script src="~/jquery/dist/jquery.min.js"></script>
+    <script src="~/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js"></script>
+</head>
+
+<h1>Форма создания команды</h1>
+
+@using (Html.BeginForm("InsertTeam", "FootballTeams", FormMethod.Post, new { id = "createTeamForm" }))
+{
+    <fieldset>
+        <div>
+           Название:
+        </div>
+        <div>
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+        <div>
+            <input type="submit" value="Добавить" form="createTeamForm" class="button" />
+        </div>
+    </fieldset>
+}

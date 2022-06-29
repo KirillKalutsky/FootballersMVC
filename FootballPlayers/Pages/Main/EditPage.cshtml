@@ -1,0 +1,16 @@
+﻿
+
+<h1>Форма изменения записи футболиста</h1>
+
+<div class="editor-field ui-widget">
+     @Html.Partial("../Components/FootballerForm.cshtml")
+</div>
+
+<div class="footballerFormButton">
+    <div>
+        <input type="submit" value="Сохранить изменения" form="footballerForm" class="button" />
+    </div>
+    <div>
+        @Html.ActionLink("Отменить внесение изменений", "GetSecondPageView", "Page", null, new {id = "cancelButton" })
+    </div>
+</div>

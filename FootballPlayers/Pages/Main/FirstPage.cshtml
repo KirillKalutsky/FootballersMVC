@@ -1,0 +1,15 @@
+﻿
+
+<h1>Форма создания записи футболиста</h1>
+
+<div class="editor-field ui-widget">
+     @Html.Partial("../Components/FootballerForm.cshtml")
+</div>
+
+<div class="footballerFormButton">
+    <input type="submit" value="Submit" form="footballerForm"  class="button"/>
+</div>
+
+<div id="pageSwitch">
+    @Html.ActionLink("2","GetSecondPageView","Page")
+</div>

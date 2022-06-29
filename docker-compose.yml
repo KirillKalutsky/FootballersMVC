@@ -1,0 +1,26 @@
+version: '3.8'
+services:
+  footballers:
+    container_name: footballers
+    depends_on:
+      - "db"
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      DB_CONNECTION_STRING: "host=db;port=5432;database=footballers;username=postgres;password=124356"
+    ports:
+      - "5000:80"
+    
+  db:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 124356
+      POSTGRES_DB: footballers
+    ports:
+      - "5432:5432"
+   
+
+  
+    

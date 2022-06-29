@@ -1,0 +1,32 @@
+{
+  "version": "1.0",
+  "defaultProvider": "unpkg",
+  "libraries": [
+    {
+      "library": "@microsoft/signalr@6.0.6",
+      "destination": "wwwroot/signalr/",
+      "files": [
+        "dist/browser/signalr.js",
+        "dist/browser/signalr.min.js"
+      ]
+    },
+    {
+      "library": "jquery@3.6.0",
+      "destination": "wwwroot/jquery/",
+      "files": [
+        "dist/jquery.js",
+        "dist/jquery.min.js"
+      ]
+    },
+    {
+      "provider": "unpkg",
+      "library": "jquery-validation@1.19.4",
+      "destination": "wwwroot/jquery-validation/"
+    },
+    {
+      "provider": "unpkg",
+      "library": "jquery-validation-unobtrusive@3.2.12",
+      "destination": "wwwroot/jquery-validation-unobtrusive/"
+    }
+  ]
+}

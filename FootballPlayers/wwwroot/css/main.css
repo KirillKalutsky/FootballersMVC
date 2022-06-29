@@ -1,0 +1,97 @@
+﻿
+
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+thead {
+    position: sticky;
+    top: 0;
+    background-color: #686b66;
+    color: white;
+}
+
+tbody {
+    background-color: white;
+    color: black;
+}
+
+td, th {
+    padding: 3px;
+    text-align: center;
+    border-bottom: 1px solid #999999;
+}
+
+h1 {
+    text-align: center;
+}
+
+form {
+    margin: auto;
+    width: 450px;
+}
+
+a:link, a:visited, input.button {
+    font-size: 16px;
+    margin-top: 5px;
+    
+    background-color: #76cc74;
+    padding: 5px 10px;
+    color: white;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.button:hover, a:hover, a:active {
+    background-color: #7beb36;
+}
+
+.footballerFormButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+#pageSwitch {
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
+    height: 50px;
+    padding-top: 20px;
+    width: 100%;
+    font-weight: bold;
+    font-size: 18px;
+    text-align: center;
+    background-color: #686b66;
+    color: white;
+}
+
+#footballersTable {
+    overflow-y: scroll;
+    width: 100%;
+    height: calc(100vh - 150px);
+}
+
+.formProp{
+    margin-bottom:10px;
+}
+
+#cancelButton {
+    margin-left: 25px;
+}
+
+    #cancelButton:visited {
+        background-color: #f23722;
+    }
+
+    #cancelButton:hover {
+        background-color: #b83021;
+    }
+
+
+
